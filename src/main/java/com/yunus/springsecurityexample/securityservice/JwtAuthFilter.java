@@ -1,7 +1,5 @@
-package com.yunus.springsecurityexample.config;
+package com.yunus.springsecurityexample.securityservice;
 
-import com.yunus.springsecurityexample.service.JwtService;
-import com.yunus.springsecurityexample.service.UserDetailService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

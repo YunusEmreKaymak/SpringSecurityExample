@@ -1,6 +1,6 @@
 package com.yunus.springsecurityexample.controller;
 
-import com.yunus.springsecurityexample.model.Product;
+import com.yunus.springsecurityexample.dto.ProductDto;
 import com.yunus.springsecurityexample.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -15,7 +15,12 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getProducts() {
+    public List<ProductDto> getProducts() {
         return productService.getProducts();
+    }
+
+    @PostMapping
+    public void addProduct(ProductDto productDto) {
+        productService.addProduct(productDto);
     }
 }

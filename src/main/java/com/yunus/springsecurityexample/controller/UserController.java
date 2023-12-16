@@ -1,14 +1,16 @@
 package com.yunus.springsecurityexample.controller;
 
+import com.yunus.springsecurityexample.dto.UserDto;
 import com.yunus.springsecurityexample.dto.UsernameAndPassword;
-import com.yunus.springsecurityexample.model.User;
-import com.yunus.springsecurityexample.service.JwtService;
+import com.yunus.springsecurityexample.securityservice.JwtService;
 import com.yunus.springsecurityexample.service.UserService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -23,9 +25,14 @@ public class UserController {
         this.jwtService = jwtService;
     }
 
-    @GetMapping("/{username}")
-    public User getUserByUsername(@PathVariable("username") String username) {
-        return userService.getUserByUsername(username);
+    @GetMapping()
+    public List<UserDto> getUsers() {
+        return userService.getUsers();
+    }
+
+    @PostMapping
+    public void addUser(@RequestBody UserDto userDto) {
+        userService.addUser(userDto);
     }
 
     @PostMapping("/generateToken")

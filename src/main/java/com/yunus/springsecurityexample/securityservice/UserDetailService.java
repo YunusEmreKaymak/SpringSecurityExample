@@ -1,4 +1,4 @@
-package com.yunus.springsecurityexample.service;
+package com.yunus.springsecurityexample.securityservice;
 
 import com.yunus.springsecurityexample.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;

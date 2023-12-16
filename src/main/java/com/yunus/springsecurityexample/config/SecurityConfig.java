@@ -1,6 +1,7 @@
 package com.yunus.springsecurityexample.config;
 
-import com.yunus.springsecurityexample.service.UserDetailService;
+import com.yunus.springsecurityexample.securityservice.JwtAuthFilter;
+import com.yunus.springsecurityexample.securityservice.UserDetailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
