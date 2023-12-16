@@ -42,7 +42,8 @@ public class SecurityConfig {
         try {
             return http
                     .csrf(AbstractHttpConfigurer::disable)
-                    .authorizeHttpRequests(req -> req.requestMatchers("user/generateToken").permitAll().anyRequest().authenticated())
+                    .authorizeHttpRequests(req -> req.requestMatchers("user/generateToken").permitAll())
+                    .authorizeHttpRequests(req -> req.requestMatchers("user/**").hasRole("ADMIN").anyRequest().authenticated())
                     .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                     .authenticationManager(authenticationManager(http))
                     .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)

@@ -26,6 +26,7 @@ public class SpringSecurityExampleApplication {
         return args -> {
             userRepo.save(new User("user1", "useraccount1", encoder.encode("password1"), true, true, true, true, Set.of(Role.ROLE_USER)));
             userRepo.save(new User("user2", "useraccount2", encoder.encode("password2"), true, true, true, true, Set.of(Role.ROLE_DEV)));
+            userRepo.save(new User("user3", "useraccount3", encoder.encode("password3"), true, true, true, true, Set.of(Role.ROLE_ADMIN)));
             productRepo.save(new Product("product1", 3.2, "url1", 4));
             productRepo.save(new Product("product2", 3.5, "url2", 7));
         };
